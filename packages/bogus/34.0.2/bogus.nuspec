@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
+  <metadata>
+    <id>Bogus</id>
+    <version>34.0.2</version>
+    <authors>Brian Chavez</authors>
+    <licenseUrl>https://raw.githubusercontent.com/bchavez/Bogus/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/bchavez/Bogus</projectUrl>
+    <iconUrl>https://raw.githubusercontent.com/bchavez/Bogus/master/Docs/logo.png</iconUrl>
+    <description>A simple and sane data generator for populating objects that supports different locales. A delightful port of the famed faker.js and inspired by FluentValidation. Use Bogus to create UIs with fake data or seed databases. Get started by using Faker class or a DataSet directly.</description>
+    <releaseNotes>## v34.0.2
+Release Date: 2022-03-27
+* PR 406, 415: Improve XML documentation. Thanks @danielwagn3r, @DanteDeRuwe
+* PR 413: Change access modifier of `Randomizer.localSeed` to protected. Thanks @davermaltby  
+
+## v34.0.1
+Release Date: 2021-11-22
+
+* PR 399: Add support for .NET 6 DateOnly and TimeOnly random genrations in Faker.Date. Thanks @prasadtelkikar!
+* Moved Faker[T] extensions .OrNull() and .GenerateBetween() into main Bogus namespace.
+* C# 10 and VS 2022 build tooling.
+
+## v33.1.1
+Release Date: 2021-08-29
+
+* PR 390: Default Binder changed to allow use of private property setters in base classes. Thanks @thomaslevesque!
+
+## v33.0.2
+Release Date: 2021-02-21
+
+* PR 359: Add `Bogus.Person.Personnummer()` Swedish national identity number
+
+## v33.0.1
+Release Date: 2021-02-07
+
+* Locale data parity with faker-js@5478d65.
+* `nep` locale renamed to `ne`. 
+* `de` locale; `Date` dataset changed.
+* `es` locale; gender names added.
+* `fr` locale; `Date` dataset changed.
+* `nb_NO` locale; gender names added.
+* `nl` locale; `Address`, `Commerce`, `Date`, `Hacker`, `Internet` datasets changed; gender names added. 
+* `pt_BR` locale; gender names added.
+* `tr` locale; gender names added.
+* `vi` locale; gender names added. `Date`, `Lorem`, datasets changed.
+* Added `Internet.Port()`; generate port numbers from 1 to 65535.
+
+
+Full History Here: https://github.com/bchavez/Bogus/blob/master/HISTORY.md</releaseNotes>
+    <tags>faker fake bogus poco data generator database seed values test-data test tdd testing .net EF</tags>
+    <repository type="git" url="https://github.com/bchavez/Bogus" commit="318b8e2be6f7d3410d846d5519b64bcf0d901e2f" />
+    <dependencies>
+      <group targetFramework=".NETFramework4.0" />
+      <group targetFramework=".NETStandard1.3">
+        <dependency id="NETStandard.Library" version="1.6.1" exclude="Build,Analyzers" />
+        <dependency id="System.Globalization.Extensions" version="4.3.0" exclude="Build,Analyzers" />
+        <dependency id="System.Reflection.TypeExtensions" version="4.3.0" exclude="Build,Analyzers" />
+      </group>
+      <group targetFramework="net6.0" />
+      <group targetFramework=".NETStandard2.0" />
+    </dependencies>
+    <frameworkAssemblies>
+      <frameworkAssembly assemblyName="Microsoft.CSharp" targetFramework=".NETFramework4.0" />
+      <frameworkAssembly assemblyName="System" targetFramework=".NETFramework4.0" />
+    </frameworkAssemblies>
+  </metadata>
+</package>

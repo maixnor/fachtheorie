@@ -1,0 +1,24 @@
+@* insert DTO type instead of dynamic *@
+@model SPG_Fachtheorie.Aufgabe3Mvc.Controllers.TemplateController.TemplateDropdownDto 
+
+@* form target is inferred by the views path /template/dropdown ; method must be stated if not GET (here POST) *@
+<form method="post">
+    <div asp-validation-summary="All"></div>
+    <div>
+        @* asp-for matches parameters of template/dropdown (POST) *@
+        <label asp-for="Value" class="form-label"></label>
+        <select asp-for="Value" class="form-control" asp-items="ViewBag.ValuesToSelectFrom"></select>
+    </div>
+    <div>
+        <label asp-for="EFValue" class="form-label"></label>
+        <select asp-for="EFValue" class="form-control" asp-items="ViewBag.ValuesFromEntityFramework"></select>
+    </div>
+    @* no type="submit" necessary. The <button> automatically submits when within a form *@ 
+    <button class="btn btn-primary">Submit</button>
+    @* 
+        if you do need regular buttons you have to use an <a> tag. 
+        change the <a> to a <button> and notice that the submit is triggered 
+        as well as the redirect to the href. 
+    *@
+    <a href="/template/dropdown" class="btn btn-primary">Refresh</a>
+</form>

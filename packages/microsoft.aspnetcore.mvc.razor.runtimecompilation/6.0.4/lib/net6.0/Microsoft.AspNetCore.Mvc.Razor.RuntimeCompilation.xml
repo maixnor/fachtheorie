@@ -1,0 +1,190 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation</name>
+    </assembly>
+    <members>
+        <member name="T:Microsoft.AspNetCore.Mvc.ApplicationParts.AssemblyPartExtensions">
+            <summary>
+            Static class that adds methods to <see cref="T:Microsoft.AspNetCore.Mvc.ApplicationParts.AssemblyPart"/>.
+            </summary>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Mvc.ApplicationParts.AssemblyPartExtensions.GetReferencePaths(Microsoft.AspNetCore.Mvc.ApplicationParts.AssemblyPart)">
+            <inheritdoc />
+        </member>
+        <member name="T:Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation.FileProviderRazorProjectItem">
+            <summary>
+            A file provider <see cref="T:Microsoft.AspNetCore.Razor.Language.RazorProjectItem"/>.
+            </summary>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation.FileProviderRazorProjectItem.#ctor(Microsoft.Extensions.FileProviders.IFileInfo,System.String,System.String,System.String)">
+            <summary>
+            Intializes a new instance of a <see cref="T:Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation.FileProviderRazorProjectItem"/>.
+            </summary>
+            <param name="fileInfo">The file info.</param>
+            <param name="basePath">The base path.</param>
+            <param name="filePath">The file path.</param>
+            <param name="root">The root.</param>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation.FileProviderRazorProjectItem.#ctor(Microsoft.Extensions.FileProviders.IFileInfo,System.String,System.String,System.String,System.String)">
+            <summary>
+            Intializes a new instance of a <see cref="T:Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation.FileProviderRazorProjectItem"/>.
+            </summary>
+            <param name="fileInfo">The file info.</param>
+            <param name="basePath">The base path.</param>
+            <param name="filePath">The file path.</param>
+            <param name="root">The root.</param>
+            <param name="fileKind">The kind of file.</param>
+        </member>
+        <member name="P:Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation.FileProviderRazorProjectItem.FileInfo">
+            <summary>
+            The <see cref="T:Microsoft.Extensions.FileProviders.IFileInfo"/>.
+            </summary>
+        </member>
+        <member name="P:Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation.FileProviderRazorProjectItem.BasePath">
+            <inheritdoc/>
+        </member>
+        <member name="P:Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation.FileProviderRazorProjectItem.FilePath">
+            <inheritdoc/>
+        </member>
+        <member name="P:Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation.FileProviderRazorProjectItem.FileKind">
+            <inheritdoc/>
+        </member>
+        <member name="P:Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation.FileProviderRazorProjectItem.Exists">
+            <inheritdoc/>
+        </member>
+        <member name="P:Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation.FileProviderRazorProjectItem.PhysicalPath">
+            <inheritdoc/>
+        </member>
+        <member name="P:Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation.FileProviderRazorProjectItem.RelativePhysicalPath">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation.FileProviderRazorProjectItem.Read">
+            <inheritdoc/>
+        </member>
+        <member name="P:Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation.LazyMetadataReferenceFeature.References">
+            <remarks>
+            Invoking <see cref="P:Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation.RazorReferenceManager.CompilationReferences"/> ensures that compilation
+            references are lazily evaluated.
+            </remarks>
+        </member>
+        <member name="T:Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation.MvcRazorRuntimeCompilationOptions">
+            <summary>
+            Used to configure razor compilation.
+            </summary>
+        </member>
+        <member name="P:Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation.MvcRazorRuntimeCompilationOptions.FileProviders">
+            <summary>
+            Gets the <see cref="T:Microsoft.Extensions.FileProviders.IFileProvider" /> instances used to locate Razor files.
+            </summary>
+            <remarks>
+            At startup, this collection is initialized to include an instance of
+            <see cref="P:Microsoft.AspNetCore.Hosting.IHostingEnvironment.ContentRootFileProvider"/> that is rooted at the application root.
+            </remarks>
+        </member>
+        <member name="P:Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation.MvcRazorRuntimeCompilationOptions.AdditionalReferencePaths">
+            <summary>
+            Gets paths to additional references used during runtime compilation of Razor files.
+            </summary>
+            <remarks>
+            By default, the runtime compiler <see cref="T:Microsoft.AspNetCore.Mvc.ApplicationParts.ICompilationReferencesProvider"/> to gather references
+            uses to compile a Razor file. This API allows providing additional references to the compiler.
+            </remarks>
+        </member>
+        <member name="P:Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation.PageDirectiveFeature.EmptyRazorProjectFileSystem.NotFoundProjectItem.BasePath">
+            <inheritdoc />
+        </member>
+        <member name="P:Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation.PageDirectiveFeature.EmptyRazorProjectFileSystem.NotFoundProjectItem.FilePath">
+            <inheritdoc />
+        </member>
+        <member name="P:Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation.PageDirectiveFeature.EmptyRazorProjectFileSystem.NotFoundProjectItem.FileKind">
+            <inheritdoc />
+        </member>
+        <member name="P:Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation.PageDirectiveFeature.EmptyRazorProjectFileSystem.NotFoundProjectItem.Exists">
+            <inheritdoc />
+        </member>
+        <member name="P:Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation.PageDirectiveFeature.EmptyRazorProjectFileSystem.NotFoundProjectItem.PhysicalPath">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation.PageDirectiveFeature.EmptyRazorProjectFileSystem.NotFoundProjectItem.Read">
+            <inheritdoc />
+        </member>
+        <member name="P:Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation.RazorProjectPageRouteModelProvider.Order">
+            <remarks>
+            Ordered to execute after <see cref="T:Microsoft.AspNetCore.Mvc.ApplicationModels.CompiledPageRouteModelProvider"/>.
+            </remarks>
+        </member>
+        <member name="P:Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation.Resources.CompilationFailed">
+            <summary>One or more compilation failures occurred:</summary>
+        </member>
+        <member name="P:Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation.Resources.Compilation_MissingReferences">
+            <summary>One or more compilation references may be missing. If you're seeing this in a published application, set '{0}' to true in your project file to ensure files in the refs directory are published.</summary>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation.Resources.FormatCompilation_MissingReferences(System.Object)">
+            <summary>One or more compilation references may be missing. If you're seeing this in a published application, set '{0}' to true in your project file to ensure files in the refs directory are published.</summary>
+        </member>
+        <member name="P:Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation.Resources.FileProvidersAreRequired">
+            <summary>'{0}.{1}' must not be empty. At least one '{2}' is required to locate a view for rendering.</summary>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation.Resources.FormatFileProvidersAreRequired(System.Object,System.Object,System.Object)">
+            <summary>'{0}.{1}' must not be empty. At least one '{2}' is required to locate a view for rendering.</summary>
+        </member>
+        <member name="P:Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation.Resources.GeneratedCodeFileName">
+            <summary>Generated Code</summary>
+        </member>
+        <member name="P:Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation.Resources.UnsupportedDebugInformationFormat">
+            <summary>The debug type specified in the dependency context could be parsed. The debug type value '{0}' is not supported.</summary>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation.Resources.FormatUnsupportedDebugInformationFormat(System.Object)">
+            <summary>The debug type specified in the dependency context could be parsed. The debug type value '{0}' is not supported.</summary>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.PageLoaderMatcherPolicy.#ctor">
+            <remarks>
+            The <see cref="T:Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.PageLoader"/> service is configured by <c>app.AddRazorPages()</c>.
+            If the app is configured as <c>app.AddControllersWithViews().AddRazorRuntimeCompilation()</c>, the <see cref="T:Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.PageLoader"/>
+            service will not be registered. Since Razor Pages is not a pre-req for runtime compilation, we'll defer reading the service
+            until we need to load a page in the body of <see cref="M:Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.PageLoaderMatcherPolicy.ApplyAsync(Microsoft.AspNetCore.Http.HttpContext,Microsoft.AspNetCore.Routing.Matching.CandidateSet)"/>.
+            </remarks>
+        </member>
+        <member name="T:Microsoft.Extensions.DependencyInjection.RazorRuntimeCompilationMvcBuilderExtensions">
+            <summary>
+            Static class that adds razor compilation extenstion methods.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Extensions.DependencyInjection.RazorRuntimeCompilationMvcBuilderExtensions.AddRazorRuntimeCompilation(Microsoft.Extensions.DependencyInjection.IMvcBuilder)">
+            <summary>
+            Configures <see cref="T:Microsoft.Extensions.DependencyInjection.IMvcBuilder" /> to support runtime compilation of Razor views and Razor Pages.
+            </summary>
+            <param name="builder">The <see cref="T:Microsoft.Extensions.DependencyInjection.IMvcBuilder" />.</param>
+            <returns>The <see cref="T:Microsoft.Extensions.DependencyInjection.IMvcBuilder"/>.</returns>
+        </member>
+        <member name="M:Microsoft.Extensions.DependencyInjection.RazorRuntimeCompilationMvcBuilderExtensions.AddRazorRuntimeCompilation(Microsoft.Extensions.DependencyInjection.IMvcBuilder,System.Action{Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation.MvcRazorRuntimeCompilationOptions})">
+            <summary>
+            Configures <see cref="T:Microsoft.Extensions.DependencyInjection.IMvcBuilder" /> to support runtime compilation of Razor views and Razor Pages.
+            </summary>
+            <param name="builder">The <see cref="T:Microsoft.Extensions.DependencyInjection.IMvcBuilder" />.</param>
+            <param name="setupAction">An action to configure the <see cref="T:Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation.MvcRazorRuntimeCompilationOptions"/>.</param>
+            <returns>The <see cref="T:Microsoft.Extensions.DependencyInjection.IMvcBuilder"/>.</returns>
+        </member>
+        <member name="T:Microsoft.Extensions.DependencyInjection.RazorRuntimeCompilationMvcCoreBuilderExtensions">
+            <summary>
+            Static class that adds razor runtime compilation extension methods.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Extensions.DependencyInjection.RazorRuntimeCompilationMvcCoreBuilderExtensions.AddRazorRuntimeCompilation(Microsoft.Extensions.DependencyInjection.IMvcCoreBuilder)">
+            <summary>
+            Configures <see cref="T:Microsoft.Extensions.DependencyInjection.IMvcCoreBuilder" /> to support runtime compilation of Razor views and Razor Pages.
+            </summary>
+            <param name="builder">The <see cref="T:Microsoft.Extensions.DependencyInjection.IMvcCoreBuilder" />.</param>
+            <returns>The <see cref="T:Microsoft.Extensions.DependencyInjection.IMvcCoreBuilder"/>.</returns>
+        </member>
+        <member name="M:Microsoft.Extensions.DependencyInjection.RazorRuntimeCompilationMvcCoreBuilderExtensions.AddRazorRuntimeCompilation(Microsoft.Extensions.DependencyInjection.IMvcCoreBuilder,System.Action{Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation.MvcRazorRuntimeCompilationOptions})">
+            <summary>
+            Configures <see cref="T:Microsoft.Extensions.DependencyInjection.IMvcCoreBuilder" /> to support runtime compilation of Razor views and Razor Pages.
+            </summary>
+            <param name="builder">The <see cref="T:Microsoft.Extensions.DependencyInjection.IMvcCoreBuilder" />.</param>
+            <param name="setupAction">An action to configure the <see cref="T:Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation.MvcRazorRuntimeCompilationOptions"/>.</param>
+            <returns>The <see cref="T:Microsoft.Extensions.DependencyInjection.IMvcCoreBuilder"/>.</returns>
+        </member>
+    </members>
+</doc>

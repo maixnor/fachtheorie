@@ -1,0 +1,45 @@
+﻿@model IEnumerable<Offer>
+
+<a class="btn btn-primary" asp-action="Add" asp-controller="Offer">Add</a>
+
+<hr />
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <td>Name</td>
+            <td>Term</td>
+            <td>Education Type</td>
+            <td>From</td>
+            <td>To</td>
+            <td>Appointments Count</td>
+            <td></td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(Offer item in Model)
+        {
+        <tr>
+            <td>@item.Subject.Name</td>
+            <td>@item.Subject.Term</td>
+            <td>@item.Subject.EducationType</td>
+            <td>@item.From</td>
+            <td>@item.To</td>
+            <td>@item.Appointments.Count()</td>
+            <td>
+                |&nbsp
+                <a asp-action="Detail" asp-controller="Offer" asp-route-id="@item.Id">Details</a>
+                &nbsp|&nbsp
+                <a asp-action="Edit" asp-controller="Offer" asp-route-id="@item.Id">Edit</a>
+                &nbsp|&nbsp
+                <a asp-action="Delete" asp-controller="Offer" asp-route-id="@item.Id">Delete</a>
+                &nbsp|
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
+
+<hr />
+
+<a class="btn btn-primary" asp-action="Add" asp-controller="Offer">Add</a>

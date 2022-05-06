@@ -1,0 +1,15 @@
+﻿@model EditOfferDto
+
+<form method="post">
+    <div asp-validation-summary="All"></div>
+    <input asp-for="Id" type="hidden" />
+    <div>
+        <label asp-for="To" class="form-label"></label>
+        <input asp-for="To" type="date" class="form-control" />
+        <span asp-validation-for="To"></span>
+    </div>
+
+    <hr />
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>

@@ -1,0 +1,14 @@
+﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=49ce6083_002D4118_002D4aaa_002D880a_002D090f5054ccce/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="ConfirmAppointmentStudentReturnsFalseIfStateIsInvalid" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+  &lt;TestAncestor&gt;
+    &lt;TestId&gt;xUnit::8677B43F-5BD8-4E86-8582-D9DBCB6B58F3::net6.0::SPG_Fachtheorie.Aufgabe2.Test.AppointmentServiceTests.ConfirmAppointmentStudentReturnsFalseIfStateIsInvalid&lt;/TestId&gt;
+  &lt;/TestAncestor&gt;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=eda471fc_002D674e_002D4e40_002D93c1_002D60ee81ef2874/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="CreateDatabaseTest" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+  &lt;Or&gt;
+    &lt;TestAncestor&gt;
+      &lt;TestId&gt;xUnit::C61A48E2-B25E-4411-BE8C-B4A0A9C82F2A::net6.0::SPG_Fachtheorie.Aufgabe1.Test.InvoiceContextTests.CreateDatabaseTest&lt;/TestId&gt;
+    &lt;/TestAncestor&gt;
+    &lt;Project Location="/home/maixnor/RiderProjects/Angabe_Kolleg_Jan2022/SPG_Fachtheorie/SPG_Fachtheorie.Aufgabe2.Test" Presentation="&amp;lt;SPG_Fachtheorie.Aufgabe2.Test&amp;gt;" /&gt;
+  &lt;/Or&gt;
+&lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>

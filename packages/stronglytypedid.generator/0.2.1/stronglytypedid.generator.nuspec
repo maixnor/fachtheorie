@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2013/01/nuspec.xsd">
+  <metadata minClientVersion="2.5">
+    <id>StronglyTypedId.Generator</id>
+    <version>0.2.1</version>
+    <authors>Andrew Lock</authors>
+    <owners>Andrew Lock</owners>
+    <developmentDependency>true</developmentDependency>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <licenseUrl>https://raw.githubusercontent.com/andrewlock/StronglyTypedId/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/andrewlock/StronglyTypedId</projectUrl>
+    <iconUrl>https://raw.githubusercontent.com/andrewlock/StronglyTypedId/master/logo.png</iconUrl>
+    <description>Contains code generator for strongly-typed IDs. See project site for installation instructions and more details.</description>
+    <releaseNotes>See https://github.com/andrewlock/StronglyTypedId/blob/master/CHANGELOG.md#v021 for more details.</releaseNotes>
+    <copyright>Copyright © AndrewLock</copyright>
+    <tags>strongly-typed IDs attribute generator generators generation code codegen codegenerator codegeneration</tags>
+    <repository type="git" url="https://github.com/andrewlock/StronglyTypedId" />
+  </metadata>
+</package>

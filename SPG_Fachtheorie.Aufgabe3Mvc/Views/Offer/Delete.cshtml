@@ -1,0 +1,13 @@
+﻿@model DeleteOfferDto
+
+<h3>Delete Offer?</h3>
+
+<p>
+    @Model.Message
+</p>
+
+@if (Model.CanDelete)
+{
+<a class="btn btn-danger" asp-action="ConfirmDelete" asp-controller="Offer" asp-route-id=@Model.Id>Delete Now</a>
+}
+<a class="btn btn-primary" asp-action="Index" asp-controller="Offer">Back To List</a>

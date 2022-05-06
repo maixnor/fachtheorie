@@ -1,0 +1,33 @@
+﻿@model Offer
+
+@{
+}
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <td>Date</td>
+            <td>Location</td>
+            <td>State</td>
+            <td>First Name</td>
+            <td>Last Name</td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(Appointment item in Model.Appointments)
+        {
+            string cancelled = item.State == AppointmentState.Cancelled ? "bg-danger text-white" : "bg-transparent text-dark";
+            <tr class="@cancelled">
+            <td>@item.Date</td>
+            <td>@item.Location</td>
+            <td>@item.State</td>
+            <td>@item.Student.Firstname</td>
+            <td>@item.Student.Lastname</td>
+        </tr>
+        }
+    </tbody>
+</table>
+
+<hr />
+
+<a class="btn btn-primary" asp-action="Index" asp-controller="Offer">Back To List</a>

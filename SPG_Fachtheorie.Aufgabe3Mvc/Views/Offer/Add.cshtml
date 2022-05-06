@@ -1,0 +1,30 @@
+﻿@model NewOfferDto
+
+@* form target is inferred by the views path /order/add ; method must be stated if not GET (here POST) *@
+<form method="post">
+    <div asp-validation-summary="All"></div>
+    <div>
+        <label asp-for="SubjectId" class="form-label"></label>
+        @*ViewBag.subjects is filled by OfferController:52*@
+        @*ViewBag.subjects == ViewData["subjects"]*@
+        <select asp-for="SubjectId" class="form-control" asp-items="ViewBag.subjects"></select> 
+    </div>
+    <div>
+        <label asp-for="TeacherId" class="form-label"></label>
+        <select asp-for="TeacherId" class="form-control" asp-items="ViewBag.teachers"></select>
+    </div>
+    <div>
+        <label asp-for="From" class="form-label"></label>
+        <input asp-for="From" type="date" class="form-control" />
+        <span asp-validation-for="From"></span>
+    </div>
+    <div>
+        <label asp-for="To" class="form-label"></label>
+        <input asp-for="To" type="date" class="form-control" />
+        <span asp-validation-for="To"></span>
+    </div>
+
+    <hr />
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>

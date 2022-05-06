@@ -1,0 +1,663 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Microsoft.EntityFrameworkCore.Proxies</name>
+    </assembly>
+    <members>
+        <member name="T:Microsoft.EntityFrameworkCore.Internal.ProxiesStrings">
+            <summary>
+                This is an internal API that supports the Entity Framework Core infrastructure and not subject to
+                the same compatibility standards as public APIs. It may be changed or removed without notice in
+                any release. You should only use it directly in your code with extreme caution and knowing that
+                doing so can result in application failures when updating to a new Entity Framework Core release.
+            </summary>
+        </member>
+        <member name="M:Microsoft.EntityFrameworkCore.Internal.ProxiesStrings.DictionaryCannotBeProxied(System.Object,System.Object,System.Object)">
+            <summary>
+                The type '{dictionaryType}' used for shared entity type '{entityType}' is not suitable for use as a change-tracking proxy because its indexer property is not virtual. Consider using an implementation of '{interfaceType}' that allows overriding of the indexer.
+            </summary>
+        </member>
+        <member name="M:Microsoft.EntityFrameworkCore.Internal.ProxiesStrings.EntityTypeNotFoundShared(System.Object)">
+            <summary>
+                The type '{clrType}' is configured as a shared-type entity type, but the entity type name is not known. Ensure that CreateProxy is called on a DbSet created specifically for the shared-type entity type through use of a 'DbContext.Set' overload that accepts an entity type name.
+            </summary>
+        </member>
+        <member name="M:Microsoft.EntityFrameworkCore.Internal.ProxiesStrings.EntityTypeNotFoundWeak(System.Object)">
+            <summary>
+                Cannot create a proxy for '{typeName}' because it is mapped to multiple owned entity types. Proxy creation is not supported for owned types used more than once in the model.
+            </summary>
+        </member>
+        <member name="M:Microsoft.EntityFrameworkCore.Internal.ProxiesStrings.FieldProperty(System.Object,System.Object)">
+            <summary>
+                Property '{property}' on entity type '{entityType}' is mapped without a CLR property. 'UseChangeTrackingProxies' requires all entity types to be public, unsealed, have virtual properties, and have a public or protected constructor. 'UseLazyLoadingProxies' requires only the navigation properties be virtual.
+            </summary>
+        </member>
+        <member name="M:Microsoft.EntityFrameworkCore.Internal.ProxiesStrings.ItsASeal(System.Object)">
+            <summary>
+                Entity type '{entityType}' is sealed. 'UseChangeTrackingProxies' requires all entity types to be public, unsealed, have virtual properties, and have a public or protected constructor. 'UseLazyLoadingProxies' requires only the navigation properties be virtual.
+            </summary>
+        </member>
+        <member name="M:Microsoft.EntityFrameworkCore.Internal.ProxiesStrings.NonVirtualIndexerProperty(System.Object)">
+            <summary>
+                The mapped indexer property on entity type '{entityType}' is not virtual. 'UseChangeTrackingProxies' requires all entity types to be public, unsealed, have virtual properties, and have a public or protected constructor. 'UseLazyLoadingProxies' requires only the navigation properties be virtual.
+            </summary>
+        </member>
+        <member name="M:Microsoft.EntityFrameworkCore.Internal.ProxiesStrings.NonVirtualProperty(System.Object,System.Object)">
+            <summary>
+                Property '{1_entityType}.{0_property}' is not virtual. 'UseChangeTrackingProxies' requires all entity types to be public, unsealed, have virtual properties, and have a public or protected constructor. 'UseLazyLoadingProxies' requires only the navigation properties be virtual.
+            </summary>
+        </member>
+        <member name="M:Microsoft.EntityFrameworkCore.Internal.ProxiesStrings.ProxiesNotEnabled(System.Object)">
+            <summary>
+                Unable to create proxy for '{entityType}' because proxies are not enabled. Call 'DbContextOptionsBuilder.UseChangeTrackingProxies' or 'DbContextOptionsBuilder.UseLazyLoadingProxies' to enable proxies.
+            </summary>
+        </member>
+        <member name="P:Microsoft.EntityFrameworkCore.Internal.ProxiesStrings.ProxyServicesMissing">
+            <summary>
+                'UseChangeTrackingProxies' and 'UseLazyLoadingProxies' each require AddEntityFrameworkProxies to be called on the internal service provider used.
+            </summary>
+        </member>
+        <member name="T:Microsoft.EntityFrameworkCore.ProxiesExtensions">
+            <summary>
+                Extension methods related to use of proxies with Entity Framework Core.
+            </summary>
+        </member>
+        <member name="M:Microsoft.EntityFrameworkCore.ProxiesExtensions.UseChangeTrackingProxies(Microsoft.EntityFrameworkCore.DbContextOptionsBuilder,System.Boolean,System.Boolean)">
+            <summary>
+                <para>
+                    Turns on the creation of change tracking proxies.
+                </para>
+                <para>
+                    Note that this requires appropriate services to be available in the EF internal service provider. Normally this
+                    will happen automatically, but if the application is controlling the service provider, then a call to
+                    <see cref="M:Microsoft.Extensions.DependencyInjection.ProxiesServiceCollectionExtensions.AddEntityFrameworkProxies(Microsoft.Extensions.DependencyInjection.IServiceCollection)" /> may be needed.
+                </para>
+            </summary>
+            <remarks>
+                See <see href="https://aka.ms/efcore-docs-notification-entities">Notification entities</see> for more information.
+            </remarks>
+            <param name="optionsBuilder">
+                The options builder, as passed to <see cref="M:Microsoft.EntityFrameworkCore.DbContext.OnConfiguring(Microsoft.EntityFrameworkCore.DbContextOptionsBuilder)" />
+                or exposed AddDbContext.
+            </param>
+            <param name="useChangeTrackingProxies">
+                <see langword="true" /> to use change tracking proxies; <see langword="false" /> to prevent their
+                use.
+            </param>
+            <param name="checkEquality">
+                <see langword="true" /> if proxy change detection should check if the incoming value is equal to the current
+                value before notifying. Defaults to <see langword="true" />.
+            </param>
+            <returns>The same builder to allow method calls to be chained.</returns>
+        </member>
+        <member name="M:Microsoft.EntityFrameworkCore.ProxiesExtensions.UseChangeTrackingProxies``1(Microsoft.EntityFrameworkCore.DbContextOptionsBuilder{``0},System.Boolean,System.Boolean)">
+            <summary>
+                <para>
+                    Turns on the creation of change tracking proxies.
+                </para>
+                <para>
+                    Note that this requires appropriate services to be available in the EF internal service provider. Normally this
+                    will happen automatically, but if the application is controlling the service provider, then a call to
+                    <see cref="M:Microsoft.Extensions.DependencyInjection.ProxiesServiceCollectionExtensions.AddEntityFrameworkProxies(Microsoft.Extensions.DependencyInjection.IServiceCollection)" /> may be needed.
+                </para>
+            </summary>
+            <remarks>
+                See <see href="https://aka.ms/efcore-docs-notification-entities">Notification entities</see> for more information.
+            </remarks>
+            <typeparam name="TContext">The <see cref="T:Microsoft.EntityFrameworkCore.DbContext" /> type.</typeparam>
+            <param name="optionsBuilder">
+                The options builder, as passed to <see cref="M:Microsoft.EntityFrameworkCore.DbContext.OnConfiguring(Microsoft.EntityFrameworkCore.DbContextOptionsBuilder)" />
+                or exposed AddDbContext.
+            </param>
+            <param name="useChangeTrackingProxies">
+                <see langword="true" /> to use change tracking proxies; <see langword="false" /> to prevent their
+                use.
+            </param>
+            <param name="checkEquality">
+                <see langword="true" /> if proxy change detection should check if the incoming value is equal to the current
+                value before notifying. Defaults to <see langword="true" />.
+            </param>
+            <returns>The same builder to allow method calls to be chained.</returns>
+        </member>
+        <member name="M:Microsoft.EntityFrameworkCore.ProxiesExtensions.UseLazyLoadingProxies(Microsoft.EntityFrameworkCore.DbContextOptionsBuilder,System.Boolean)">
+            <summary>
+                <para>
+                    Turns on the creation of lazy loading proxies.
+                </para>
+                <para>
+                    Note that this requires appropriate services to be available in the EF internal service provider. Normally this
+                    will happen automatically, but if the application is controlling the service provider, then a call to
+                    <see cref="M:Microsoft.Extensions.DependencyInjection.ProxiesServiceCollectionExtensions.AddEntityFrameworkProxies(Microsoft.Extensions.DependencyInjection.IServiceCollection)" /> may be needed.
+                </para>
+            </summary>
+            <remarks>
+                See <see href="https://aka.ms/efcore-docs-lazy-loading">Lazy loading</see> for more information.
+            </remarks>
+            <param name="optionsBuilder">
+                The options builder, as passed to <see cref="M:Microsoft.EntityFrameworkCore.DbContext.OnConfiguring(Microsoft.EntityFrameworkCore.DbContextOptionsBuilder)" />
+                or exposed AddDbContext.
+            </param>
+            <param name="useLazyLoadingProxies"><see langword="true" /> to use lazy loading proxies; <see langword="false" /> to prevent their use.</param>
+            <returns>The same builder to allow method calls to be chained.</returns>
+        </member>
+        <member name="M:Microsoft.EntityFrameworkCore.ProxiesExtensions.UseLazyLoadingProxies``1(Microsoft.EntityFrameworkCore.DbContextOptionsBuilder{``0},System.Boolean)">
+            <summary>
+                <para>
+                    Turns on the creation of lazy loading proxies.
+                </para>
+                <para>
+                    Note that this requires appropriate services to be available in the EF internal service provider. Normally this
+                    will happen automatically, but if the application is controlling the service provider, then a call to
+                    <see cref="M:Microsoft.Extensions.DependencyInjection.ProxiesServiceCollectionExtensions.AddEntityFrameworkProxies(Microsoft.Extensions.DependencyInjection.IServiceCollection)" /> may be needed.
+                </para>
+            </summary>
+            <remarks>
+                See <see href="https://aka.ms/efcore-docs-lazy-loading">Lazy loading</see> for more information.
+            </remarks>
+            <typeparam name="TContext">The <see cref="T:Microsoft.EntityFrameworkCore.DbContext" /> type.</typeparam>
+            <param name="optionsBuilder">
+                The options builder, as passed to <see cref="M:Microsoft.EntityFrameworkCore.DbContext.OnConfiguring(Microsoft.EntityFrameworkCore.DbContextOptionsBuilder)" />
+                or exposed AddDbContext.
+            </param>
+            <param name="useLazyLoadingProxies"><see langword="true" /> to use lazy loading proxies; <see langword="false" /> to prevent their use.</param>
+            <returns>The same builder to allow method calls to be chained.</returns>
+        </member>
+        <member name="M:Microsoft.EntityFrameworkCore.ProxiesExtensions.CreateProxy(Microsoft.EntityFrameworkCore.DbContext,System.Type,System.Object[])">
+            <summary>
+                Creates a proxy instance for an entity type if proxy creation has been turned on.
+            </summary>
+            <param name="context">The <see cref="T:Microsoft.EntityFrameworkCore.DbContext" />.</param>
+            <param name="entityType">The entity type for which a proxy is needed.</param>
+            <param name="constructorArguments">Arguments to pass to the entity type constructor.</param>
+            <returns>The proxy instance.</returns>
+        </member>
+        <member name="M:Microsoft.EntityFrameworkCore.ProxiesExtensions.CreateProxy``1(Microsoft.EntityFrameworkCore.DbContext,System.Object[])">
+            <summary>
+                Creates a proxy instance for an entity type if proxy creation has been turned on.
+            </summary>
+            <typeparam name="TEntity">The entity type for which a proxy is needed.</typeparam>
+            <param name="context">The <see cref="T:Microsoft.EntityFrameworkCore.DbContext" />.</param>
+            <param name="constructorArguments">Arguments to pass to the entity type constructor.</param>
+            <returns>The proxy instance.</returns>
+        </member>
+        <member name="M:Microsoft.EntityFrameworkCore.ProxiesExtensions.CreateProxy``1(Microsoft.EntityFrameworkCore.DbContext,System.Action{``0},System.Object[])">
+            <summary>
+                Creates a proxy instance for an entity type if proxy creation has been turned on.
+            </summary>
+            <typeparam name="TEntity">The entity type for which a proxy is needed.</typeparam>
+            <param name="context">The <see cref="T:Microsoft.EntityFrameworkCore.DbContext" />.</param>
+            <param name="configureEntity">Called after the entity is created to set property values, etc.</param>
+            <param name="constructorArguments">Arguments to pass to the entity type constructor.</param>
+            <returns>The proxy instance.</returns>
+        </member>
+        <member name="M:Microsoft.EntityFrameworkCore.ProxiesExtensions.CreateProxy``1(Microsoft.EntityFrameworkCore.DbSet{``0},System.Object[])">
+            <summary>
+                Creates a proxy instance for an entity type if proxy creation has been turned on.
+            </summary>
+            <typeparam name="TEntity">The entity type for which a proxy is needed.</typeparam>
+            <param name="set">The <see cref="T:Microsoft.EntityFrameworkCore.DbSet`1" />.</param>
+            <param name="constructorArguments">Arguments to pass to the entity type constructor.</param>
+            <returns>The proxy instance.</returns>
+        </member>
+        <member name="M:Microsoft.EntityFrameworkCore.ProxiesExtensions.CreateProxy``1(Microsoft.EntityFrameworkCore.DbSet{``0},System.Action{``0},System.Object[])">
+            <summary>
+                Creates a proxy instance for an entity type if proxy creation has been turned on.
+            </summary>
+            <typeparam name="TEntity">The entity type for which a proxy is needed.</typeparam>
+            <param name="set">The <see cref="T:Microsoft.EntityFrameworkCore.DbSet`1" />.</param>
+            <param name="configureEntity">Called after the entity is created to set property values, etc.</param>
+            <param name="constructorArguments">Arguments to pass to the entity type constructor.</param>
+            <returns>The proxy instance.</returns>
+        </member>
+        <member name="T:Microsoft.EntityFrameworkCore.Proxies.Internal.IProxyFactory">
+            <summary>
+                This is an internal API that supports the Entity Framework Core infrastructure and not subject to
+                the same compatibility standards as public APIs. It may be changed or removed without notice in
+                any release. You should only use it directly in your code with extreme caution and knowing that
+                doing so can result in application failures when updating to a new Entity Framework Core release.
+            </summary>
+        </member>
+        <member name="M:Microsoft.EntityFrameworkCore.Proxies.Internal.IProxyFactory.CreateLazyLoadingProxy(Microsoft.EntityFrameworkCore.DbContext,Microsoft.EntityFrameworkCore.Metadata.IEntityType,Microsoft.EntityFrameworkCore.Infrastructure.ILazyLoader,System.Object[])">
+            <summary>
+                This is an internal API that supports the Entity Framework Core infrastructure and not subject to
+                the same compatibility standards as public APIs. It may be changed or removed without notice in
+                any release. You should only use it directly in your code with extreme caution and knowing that
+                doing so can result in application failures when updating to a new Entity Framework Core release.
+            </summary>
+        </member>
+        <member name="M:Microsoft.EntityFrameworkCore.Proxies.Internal.IProxyFactory.CreateProxy(Microsoft.EntityFrameworkCore.DbContext,Microsoft.EntityFrameworkCore.Metadata.IEntityType,System.Object[])">
+            <summary>
+                This is an internal API that supports the Entity Framework Core infrastructure and not subject to
+                the same compatibility standards as public APIs. It may be changed or removed without notice in
+                any release. You should only use it directly in your code with extreme caution and knowing that
+                doing so can result in application failures when updating to a new Entity Framework Core release.
+            </summary>
+        </member>
+        <member name="M:Microsoft.EntityFrameworkCore.Proxies.Internal.IProxyFactory.CreateProxyType(Microsoft.EntityFrameworkCore.Proxies.Internal.ProxiesOptionsExtension,Microsoft.EntityFrameworkCore.Metadata.IReadOnlyEntityType)">
+            <summary>
+                This is an internal API that supports the Entity Framework Core infrastructure and not subject to
+                the same compatibility standards as public APIs. It may be changed or removed without notice in
+                any release. You should only use it directly in your code with extreme caution and knowing that
+                doing so can result in application failures when updating to a new Entity Framework Core release.
+            </summary>
+        </member>
+        <member name="M:Microsoft.EntityFrameworkCore.Proxies.Internal.IProxyFactory.Create(Microsoft.EntityFrameworkCore.DbContext,System.Type,System.Object[])">
+            <summary>
+                This is an internal API that supports the Entity Framework Core infrastructure and not subject to
+                the same compatibility standards as public APIs. It may be changed or removed without notice in
+                any release. You should only use it directly in your code with extreme caution and knowing that
+                doing so can result in application failures when updating to a new Entity Framework Core release.
+            </summary>
+        </member>
+        <member name="T:Microsoft.EntityFrameworkCore.Proxies.Internal.IProxyLazyLoader">
+            <summary>
+                This is an internal API that supports the Entity Framework Core infrastructure and not subject to
+                the same compatibility standards as public APIs. It may be changed or removed without notice in
+                any release. You should only use it directly in your code with extreme caution and knowing that
+                doing so can result in application failures when updating to a new Entity Framework Core release.
+            </summary>
+        </member>
+        <member name="P:Microsoft.EntityFrameworkCore.Proxies.Internal.IProxyLazyLoader.LazyLoader">
+            <summary>
+                This is an internal API that supports the Entity Framework Core infrastructure and not subject to
+                the same compatibility standards as public APIs. It may be changed or removed without notice in
+                any release. You should only use it directly in your code with extreme caution and knowing that
+                doing so can result in application failures when updating to a new Entity Framework Core release.
+            </summary>
+        </member>
+        <member name="T:Microsoft.EntityFrameworkCore.Proxies.Internal.LazyLoadingInterceptor">
+            <summary>
+                This is an internal API that supports the Entity Framework Core infrastructure and not subject to
+                the same compatibility standards as public APIs. It may be changed or removed without notice in
+                any release. You should only use it directly in your code with extreme caution and knowing that
+                doing so can result in application failures when updating to a new Entity Framework Core release.
+            </summary>
+        </member>
+        <member name="M:Microsoft.EntityFrameworkCore.Proxies.Internal.LazyLoadingInterceptor.#ctor(Microsoft.EntityFrameworkCore.Metadata.IEntityType,Microsoft.EntityFrameworkCore.Infrastructure.ILazyLoader)">
+            <summary>
+                This is an internal API that supports the Entity Framework Core infrastructure and not subject to
+                the same compatibility standards as public APIs. It may be changed or removed without notice in
+                any release. You should only use it directly in your code with extreme caution and knowing that
+                doing so can result in application failures when updating to a new Entity Framework Core release.
+            </summary>
+        </member>
+        <member name="M:Microsoft.EntityFrameworkCore.Proxies.Internal.LazyLoadingInterceptor.Intercept(Castle.DynamicProxy.IInvocation)">
+            <summary>
+                This is an internal API that supports the Entity Framework Core infrastructure and not subject to
+                the same compatibility standards as public APIs. It may be changed or removed without notice in
+                any release. You should only use it directly in your code with extreme caution and knowing that
+                doing so can result in application failures when updating to a new Entity Framework Core release.
+            </summary>
+        </member>
+        <member name="T:Microsoft.EntityFrameworkCore.Proxies.Internal.PropertyChangedInterceptor">
+            <summary>
+                This is an internal API that supports the Entity Framework Core infrastructure and not subject to
+                the same compatibility standards as public APIs. It may be changed or removed without notice in
+                any release. You should only use it directly in your code with extreme caution and knowing that
+                doing so can result in application failures when updating to a new Entity Framework Core release.
+            </summary>
+        </member>
+        <member name="M:Microsoft.EntityFrameworkCore.Proxies.Internal.PropertyChangedInterceptor.#ctor(Microsoft.EntityFrameworkCore.Metadata.IEntityType,System.Boolean)">
+            <summary>
+                This is an internal API that supports the Entity Framework Core infrastructure and not subject to
+                the same compatibility standards as public APIs. It may be changed or removed without notice in
+                any release. You should only use it directly in your code with extreme caution and knowing that
+                doing so can result in application failures when updating to a new Entity Framework Core release.
+            </summary>
+        </member>
+        <member name="M:Microsoft.EntityFrameworkCore.Proxies.Internal.PropertyChangedInterceptor.Intercept(Castle.DynamicProxy.IInvocation)">
+            <summary>
+                This is an internal API that supports the Entity Framework Core infrastructure and not subject to
+                the same compatibility standards as public APIs. It may be changed or removed without notice in
+                any release. You should only use it directly in your code with extreme caution and knowing that
+                doing so can result in application failures when updating to a new Entity Framework Core release.
+            </summary>
+        </member>
+        <member name="T:Microsoft.EntityFrameworkCore.Proxies.Internal.PropertyChangeInterceptorBase">
+            <summary>
+                This is an internal API that supports the Entity Framework Core infrastructure and not subject to
+                the same compatibility standards as public APIs. It may be changed or removed without notice in
+                any release. You should only use it directly in your code with extreme caution and knowing that
+                doing so can result in application failures when updating to a new Entity Framework Core release.
+            </summary>
+        </member>
+        <member name="M:Microsoft.EntityFrameworkCore.Proxies.Internal.PropertyChangeInterceptorBase.#ctor(Microsoft.EntityFrameworkCore.Metadata.IEntityType)">
+            <summary>
+                This is an internal API that supports the Entity Framework Core infrastructure and not subject to
+                the same compatibility standards as public APIs. It may be changed or removed without notice in
+                any release. You should only use it directly in your code with extreme caution and knowing that
+                doing so can result in application failures when updating to a new Entity Framework Core release.
+            </summary>
+        </member>
+        <member name="P:Microsoft.EntityFrameworkCore.Proxies.Internal.PropertyChangeInterceptorBase.EntityType">
+            <summary>
+                This is an internal API that supports the Entity Framework Core infrastructure and not subject to
+                the same compatibility standards as public APIs. It may be changed or removed without notice in
+                any release. You should only use it directly in your code with extreme caution and knowing that
+                doing so can result in application failures when updating to a new Entity Framework Core release.
+            </summary>
+        </member>
+        <member name="M:Microsoft.EntityFrameworkCore.Proxies.Internal.PropertyChangeInterceptorBase.GetValueComparer(Microsoft.EntityFrameworkCore.Metadata.IProperty)">
+            <summary>
+                This is an internal API that supports the Entity Framework Core infrastructure and not subject to
+                the same compatibility standards as public APIs. It may be changed or removed without notice in
+                any release. You should only use it directly in your code with extreme caution and knowing that
+                doing so can result in application failures when updating to a new Entity Framework Core release.
+            </summary>
+        </member>
+        <member name="M:Microsoft.EntityFrameworkCore.Proxies.Internal.PropertyChangeInterceptorBase.FindPropertyName(Castle.DynamicProxy.IInvocation)">
+            <summary>
+                This is an internal API that supports the Entity Framework Core infrastructure and not subject to
+                the same compatibility standards as public APIs. It may be changed or removed without notice in
+                any release. You should only use it directly in your code with extreme caution and knowing that
+                doing so can result in application failures when updating to a new Entity Framework Core release.
+            </summary>
+        </member>
+        <member name="T:Microsoft.EntityFrameworkCore.Proxies.Internal.PropertyChangingInterceptor">
+            <summary>
+                This is an internal API that supports the Entity Framework Core infrastructure and not subject to
+                the same compatibility standards as public APIs. It may be changed or removed without notice in
+                any release. You should only use it directly in your code with extreme caution and knowing that
+                doing so can result in application failures when updating to a new Entity Framework Core release.
+            </summary>
+        </member>
+        <member name="M:Microsoft.EntityFrameworkCore.Proxies.Internal.PropertyChangingInterceptor.#ctor(Microsoft.EntityFrameworkCore.Metadata.IEntityType,System.Boolean)">
+            <summary>
+                This is an internal API that supports the Entity Framework Core infrastructure and not subject to
+                the same compatibility standards as public APIs. It may be changed or removed without notice in
+                any release. You should only use it directly in your code with extreme caution and knowing that
+                doing so can result in application failures when updating to a new Entity Framework Core release.
+            </summary>
+        </member>
+        <member name="M:Microsoft.EntityFrameworkCore.Proxies.Internal.PropertyChangingInterceptor.Intercept(Castle.DynamicProxy.IInvocation)">
+            <summary>
+                This is an internal API that supports the Entity Framework Core infrastructure and not subject to
+                the same compatibility standards as public APIs. It may be changed or removed without notice in
+                any release. You should only use it directly in your code with extreme caution and knowing that
+                doing so can result in application failures when updating to a new Entity Framework Core release.
+            </summary>
+        </member>
+        <member name="T:Microsoft.EntityFrameworkCore.Proxies.Internal.ProxiesConventionSetPlugin">
+            <summary>
+                <para>
+                    This is an internal API that supports the Entity Framework Core infrastructure and not subject to
+                    the same compatibility standards as public APIs. It may be changed or removed without notice in
+                    any release. You should only use it directly in your code with extreme caution and knowing that
+                    doing so can result in application failures when updating to a new Entity Framework Core release.
+                </para>
+                <para>
+                    The service lifetime is <see cref="F:Microsoft.Extensions.DependencyInjection.ServiceLifetime.Scoped" /> and multiple registrations
+                    are allowed. This means that each <see cref="T:Microsoft.EntityFrameworkCore.DbContext" /> instance will use its own
+                    set of instances of this service.
+                    The implementations may depend on other services registered with any lifetime.
+                    The implementations do not need to be thread-safe.
+                </para>
+            </summary>
+        </member>
+        <member name="M:Microsoft.EntityFrameworkCore.Proxies.Internal.ProxiesConventionSetPlugin.#ctor(Microsoft.EntityFrameworkCore.Proxies.Internal.IProxyFactory,Microsoft.EntityFrameworkCore.Infrastructure.IDbContextOptions,Microsoft.EntityFrameworkCore.Metadata.LazyLoaderParameterBindingFactoryDependencies,Microsoft.EntityFrameworkCore.Metadata.Conventions.Infrastructure.ProviderConventionSetBuilderDependencies)">
+            <summary>
+                This is an internal API that supports the Entity Framework Core infrastructure and not subject to
+                the same compatibility standards as public APIs. It may be changed or removed without notice in
+                any release. You should only use it directly in your code with extreme caution and knowing that
+                doing so can result in application failures when updating to a new Entity Framework Core release.
+            </summary>
+        </member>
+        <member name="P:Microsoft.EntityFrameworkCore.Proxies.Internal.ProxiesConventionSetPlugin.ConventionSetBuilderDependencies">
+            <summary>
+                This is an internal API that supports the Entity Framework Core infrastructure and not subject to
+                the same compatibility standards as public APIs. It may be changed or removed without notice in
+                any release. You should only use it directly in your code with extreme caution and knowing that
+                doing so can result in application failures when updating to a new Entity Framework Core release.
+            </summary>
+        </member>
+        <member name="P:Microsoft.EntityFrameworkCore.Proxies.Internal.ProxiesConventionSetPlugin.LazyLoaderParameterBindingFactoryDependencies">
+            <summary>
+                This is an internal API that supports the Entity Framework Core infrastructure and not subject to
+                the same compatibility standards as public APIs. It may be changed or removed without notice in
+                any release. You should only use it directly in your code with extreme caution and knowing that
+                doing so can result in application failures when updating to a new Entity Framework Core release.
+            </summary>
+        </member>
+        <member name="M:Microsoft.EntityFrameworkCore.Proxies.Internal.ProxiesConventionSetPlugin.ModifyConventions(Microsoft.EntityFrameworkCore.Metadata.Conventions.ConventionSet)">
+            <summary>
+                This is an internal API that supports the Entity Framework Core infrastructure and not subject to
+                the same compatibility standards as public APIs. It may be changed or removed without notice in
+                any release. You should only use it directly in your code with extreme caution and knowing that
+                doing so can result in application failures when updating to a new Entity Framework Core release.
+            </summary>
+        </member>
+        <member name="T:Microsoft.EntityFrameworkCore.Proxies.Internal.ProxiesOptionsExtension">
+            <summary>
+                This is an internal API that supports the Entity Framework Core infrastructure and not subject to
+                the same compatibility standards as public APIs. It may be changed or removed without notice in
+                any release. You should only use it directly in your code with extreme caution and knowing that
+                doing so can result in application failures when updating to a new Entity Framework Core release.
+            </summary>
+        </member>
+        <member name="M:Microsoft.EntityFrameworkCore.Proxies.Internal.ProxiesOptionsExtension.#ctor">
+            <summary>
+                This is an internal API that supports the Entity Framework Core infrastructure and not subject to
+                the same compatibility standards as public APIs. It may be changed or removed without notice in
+                any release. You should only use it directly in your code with extreme caution and knowing that
+                doing so can result in application failures when updating to a new Entity Framework Core release.
+            </summary>
+        </member>
+        <member name="M:Microsoft.EntityFrameworkCore.Proxies.Internal.ProxiesOptionsExtension.#ctor(Microsoft.EntityFrameworkCore.Proxies.Internal.ProxiesOptionsExtension)">
+            <summary>
+                This is an internal API that supports the Entity Framework Core infrastructure and not subject to
+                the same compatibility standards as public APIs. It may be changed or removed without notice in
+                any release. You should only use it directly in your code with extreme caution and knowing that
+                doing so can result in application failures when updating to a new Entity Framework Core release.
+            </summary>
+        </member>
+        <member name="P:Microsoft.EntityFrameworkCore.Proxies.Internal.ProxiesOptionsExtension.Info">
+            <summary>
+                This is an internal API that supports the Entity Framework Core infrastructure and not subject to
+                the same compatibility standards as public APIs. It may be changed or removed without notice in
+                any release. You should only use it directly in your code with extreme caution and knowing that
+                doing so can result in application failures when updating to a new Entity Framework Core release.
+            </summary>
+        </member>
+        <member name="M:Microsoft.EntityFrameworkCore.Proxies.Internal.ProxiesOptionsExtension.Clone">
+            <summary>
+                This is an internal API that supports the Entity Framework Core infrastructure and not subject to
+                the same compatibility standards as public APIs. It may be changed or removed without notice in
+                any release. You should only use it directly in your code with extreme caution and knowing that
+                doing so can result in application failures when updating to a new Entity Framework Core release.
+            </summary>
+        </member>
+        <member name="P:Microsoft.EntityFrameworkCore.Proxies.Internal.ProxiesOptionsExtension.UseLazyLoadingProxies">
+            <summary>
+                This is an internal API that supports the Entity Framework Core infrastructure and not subject to
+                the same compatibility standards as public APIs. It may be changed or removed without notice in
+                any release. You should only use it directly in your code with extreme caution and knowing that
+                doing so can result in application failures when updating to a new Entity Framework Core release.
+            </summary>
+        </member>
+        <member name="P:Microsoft.EntityFrameworkCore.Proxies.Internal.ProxiesOptionsExtension.UseChangeTrackingProxies">
+            <summary>
+                This is an internal API that supports the Entity Framework Core infrastructure and not subject to
+                the same compatibility standards as public APIs. It may be changed or removed without notice in
+                any release. You should only use it directly in your code with extreme caution and knowing that
+                doing so can result in application failures when updating to a new Entity Framework Core release.
+            </summary>
+        </member>
+        <member name="P:Microsoft.EntityFrameworkCore.Proxies.Internal.ProxiesOptionsExtension.CheckEquality">
+            <summary>
+                This is an internal API that supports the Entity Framework Core infrastructure and not subject to
+                the same compatibility standards as public APIs. It may be changed or removed without notice in
+                any release. You should only use it directly in your code with extreme caution and knowing that
+                doing so can result in application failures when updating to a new Entity Framework Core release.
+            </summary>
+        </member>
+        <member name="P:Microsoft.EntityFrameworkCore.Proxies.Internal.ProxiesOptionsExtension.UseProxies">
+            <summary>
+                This is an internal API that supports the Entity Framework Core infrastructure and not subject to
+                the same compatibility standards as public APIs. It may be changed or removed without notice in
+                any release. You should only use it directly in your code with extreme caution and knowing that
+                doing so can result in application failures when updating to a new Entity Framework Core release.
+            </summary>
+        </member>
+        <member name="M:Microsoft.EntityFrameworkCore.Proxies.Internal.ProxiesOptionsExtension.WithLazyLoading(System.Boolean)">
+            <summary>
+                This is an internal API that supports the Entity Framework Core infrastructure and not subject to
+                the same compatibility standards as public APIs. It may be changed or removed without notice in
+                any release. You should only use it directly in your code with extreme caution and knowing that
+                doing so can result in application failures when updating to a new Entity Framework Core release.
+            </summary>
+        </member>
+        <member name="M:Microsoft.EntityFrameworkCore.Proxies.Internal.ProxiesOptionsExtension.WithChangeTracking(System.Boolean,System.Boolean)">
+            <summary>
+                This is an internal API that supports the Entity Framework Core infrastructure and not subject to
+                the same compatibility standards as public APIs. It may be changed or removed without notice in
+                any release. You should only use it directly in your code with extreme caution and knowing that
+                doing so can result in application failures when updating to a new Entity Framework Core release.
+            </summary>
+        </member>
+        <member name="M:Microsoft.EntityFrameworkCore.Proxies.Internal.ProxiesOptionsExtension.Validate(Microsoft.EntityFrameworkCore.Infrastructure.IDbContextOptions)">
+            <summary>
+                This is an internal API that supports the Entity Framework Core infrastructure and not subject to
+                the same compatibility standards as public APIs. It may be changed or removed without notice in
+                any release. You should only use it directly in your code with extreme caution and knowing that
+                doing so can result in application failures when updating to a new Entity Framework Core release.
+            </summary>
+        </member>
+        <member name="M:Microsoft.EntityFrameworkCore.Proxies.Internal.ProxiesOptionsExtension.ApplyServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+                This is an internal API that supports the Entity Framework Core infrastructure and not subject to
+                the same compatibility standards as public APIs. It may be changed or removed without notice in
+                any release. You should only use it directly in your code with extreme caution and knowing that
+                doing so can result in application failures when updating to a new Entity Framework Core release.
+            </summary>
+        </member>
+        <member name="T:Microsoft.EntityFrameworkCore.Proxies.Internal.ProxyBindingRewriter">
+            <summary>
+                This is an internal API that supports the Entity Framework Core infrastructure and not subject to
+                the same compatibility standards as public APIs. It may be changed or removed without notice in
+                any release. You should only use it directly in your code with extreme caution and knowing that
+                doing so can result in application failures when updating to a new Entity Framework Core release.
+            </summary>
+        </member>
+        <member name="M:Microsoft.EntityFrameworkCore.Proxies.Internal.ProxyBindingRewriter.#ctor(Microsoft.EntityFrameworkCore.Proxies.Internal.IProxyFactory,Microsoft.EntityFrameworkCore.Proxies.Internal.ProxiesOptionsExtension,Microsoft.EntityFrameworkCore.Metadata.LazyLoaderParameterBindingFactoryDependencies,Microsoft.EntityFrameworkCore.Metadata.Conventions.Infrastructure.ProviderConventionSetBuilderDependencies)">
+            <summary>
+                This is an internal API that supports the Entity Framework Core infrastructure and not subject to
+                the same compatibility standards as public APIs. It may be changed or removed without notice in
+                any release. You should only use it directly in your code with extreme caution and knowing that
+                doing so can result in application failures when updating to a new Entity Framework Core release.
+            </summary>
+        </member>
+        <member name="P:Microsoft.EntityFrameworkCore.Proxies.Internal.ProxyBindingRewriter.ConventionSetBuilderDependencies">
+            <summary>
+                This is an internal API that supports the Entity Framework Core infrastructure and not subject to
+                the same compatibility standards as public APIs. It may be changed or removed without notice in
+                any release. You should only use it directly in your code with extreme caution and knowing that
+                doing so can result in application failures when updating to a new Entity Framework Core release.
+            </summary>
+        </member>
+        <member name="P:Microsoft.EntityFrameworkCore.Proxies.Internal.ProxyBindingRewriter.LazyLoaderParameterBindingFactoryDependencies">
+            <summary>
+                This is an internal API that supports the Entity Framework Core infrastructure and not subject to
+                the same compatibility standards as public APIs. It may be changed or removed without notice in
+                any release. You should only use it directly in your code with extreme caution and knowing that
+                doing so can result in application failures when updating to a new Entity Framework Core release.
+            </summary>
+        </member>
+        <member name="M:Microsoft.EntityFrameworkCore.Proxies.Internal.ProxyBindingRewriter.ProcessModelFinalizing(Microsoft.EntityFrameworkCore.Metadata.Builders.IConventionModelBuilder,Microsoft.EntityFrameworkCore.Metadata.Conventions.IConventionContext{Microsoft.EntityFrameworkCore.Metadata.Builders.IConventionModelBuilder})">
+            <inheritdoc />
+        </member>
+        <member name="T:Microsoft.EntityFrameworkCore.Proxies.Internal.ProxyChangeTrackingConvention">
+            <summary>
+                This is an internal API that supports the Entity Framework Core infrastructure and not subject to
+                the same compatibility standards as public APIs. It may be changed or removed without notice in
+                any release. You should only use it directly in your code with extreme caution and knowing that
+                doing so can result in application failures when updating to a new Entity Framework Core release.
+            </summary>
+        </member>
+        <member name="M:Microsoft.EntityFrameworkCore.Proxies.Internal.ProxyChangeTrackingConvention.#ctor(Microsoft.EntityFrameworkCore.Proxies.Internal.ProxiesOptionsExtension)">
+            <summary>
+                This is an internal API that supports the Entity Framework Core infrastructure and not subject to
+                the same compatibility standards as public APIs. It may be changed or removed without notice in
+                any release. You should only use it directly in your code with extreme caution and knowing that
+                doing so can result in application failures when updating to a new Entity Framework Core release.
+            </summary>
+        </member>
+        <member name="M:Microsoft.EntityFrameworkCore.Proxies.Internal.ProxyChangeTrackingConvention.ProcessModelInitialized(Microsoft.EntityFrameworkCore.Metadata.Builders.IConventionModelBuilder,Microsoft.EntityFrameworkCore.Metadata.Conventions.IConventionContext{Microsoft.EntityFrameworkCore.Metadata.Builders.IConventionModelBuilder})">
+            <summary>
+                Called after a model is finalized.
+            </summary>
+            <param name="modelBuilder">The builder for the model.</param>
+            <param name="context">Additional information associated with convention execution.</param>
+        </member>
+        <member name="T:Microsoft.EntityFrameworkCore.Proxies.Internal.ProxyFactory">
+            <summary>
+                This is an internal API that supports the Entity Framework Core infrastructure and not subject to
+                the same compatibility standards as public APIs. It may be changed or removed without notice in
+                any release. You should only use it directly in your code with extreme caution and knowing that
+                doing so can result in application failures when updating to a new Entity Framework Core release.
+            </summary>
+        </member>
+        <member name="M:Microsoft.EntityFrameworkCore.Proxies.Internal.ProxyFactory.Create(Microsoft.EntityFrameworkCore.DbContext,System.Type,System.Object[])">
+            <summary>
+                This is an internal API that supports the Entity Framework Core infrastructure and not subject to
+                the same compatibility standards as public APIs. It may be changed or removed without notice in
+                any release. You should only use it directly in your code with extreme caution and knowing that
+                doing so can result in application failures when updating to a new Entity Framework Core release.
+            </summary>
+        </member>
+        <member name="M:Microsoft.EntityFrameworkCore.Proxies.Internal.ProxyFactory.CreateProxyType(Microsoft.EntityFrameworkCore.Proxies.Internal.ProxiesOptionsExtension,Microsoft.EntityFrameworkCore.Metadata.IReadOnlyEntityType)">
+            <summary>
+                This is an internal API that supports the Entity Framework Core infrastructure and not subject to
+                the same compatibility standards as public APIs. It may be changed or removed without notice in
+                any release. You should only use it directly in your code with extreme caution and knowing that
+                doing so can result in application failures when updating to a new Entity Framework Core release.
+            </summary>
+        </member>
+        <member name="M:Microsoft.EntityFrameworkCore.Proxies.Internal.ProxyFactory.CreateLazyLoadingProxy(Microsoft.EntityFrameworkCore.DbContext,Microsoft.EntityFrameworkCore.Metadata.IEntityType,Microsoft.EntityFrameworkCore.Infrastructure.ILazyLoader,System.Object[])">
+            <summary>
+                This is an internal API that supports the Entity Framework Core infrastructure and not subject to
+                the same compatibility standards as public APIs. It may be changed or removed without notice in
+                any release. You should only use it directly in your code with extreme caution and knowing that
+                doing so can result in application failures when updating to a new Entity Framework Core release.
+            </summary>
+        </member>
+        <member name="M:Microsoft.EntityFrameworkCore.Proxies.Internal.ProxyFactory.CreateProxy(Microsoft.EntityFrameworkCore.DbContext,Microsoft.EntityFrameworkCore.Metadata.IEntityType,System.Object[])">
+            <summary>
+                This is an internal API that supports the Entity Framework Core infrastructure and not subject to
+                the same compatibility standards as public APIs. It may be changed or removed without notice in
+                any release. You should only use it directly in your code with extreme caution and knowing that
+                doing so can result in application failures when updating to a new Entity Framework Core release.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Extensions.DependencyInjection.ProxiesServiceCollectionExtensions">
+            <summary>
+                EntityFrameworkCore.Proxies extension methods for <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection" />.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Extensions.DependencyInjection.ProxiesServiceCollectionExtensions.AddEntityFrameworkProxies(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+                <para>
+                    Adds the services required for proxy support in Entity Framework.
+                </para>
+                <para>
+                    Calling this method is no longer necessary when building most applications, including those that
+                    use dependency injection in ASP.NET or elsewhere.
+                    It is only needed when building the internal service provider for use with
+                    the <see cref="M:Microsoft.EntityFrameworkCore.DbContextOptionsBuilder.UseInternalServiceProvider(System.IServiceProvider)" /> method.
+                    This is not recommend other than for some advanced scenarios.
+                </para>
+            </summary>
+            <param name="serviceCollection">The <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection" /> to add services to.</param>
+            <returns>
+                The same service collection so that multiple calls can be chained.
+            </returns>
+        </member>
+        <member name="M:System.SharedTypeExtensions.DisplayName(System.Type,System.Boolean,System.Boolean)">
+            <summary>
+                This is an internal API that supports the Entity Framework Core infrastructure and not subject to
+                the same compatibility standards as public APIs. It may be changed or removed without notice in
+                any release. You should only use it directly in your code with extreme caution and knowing that
+                doing so can result in application failures when updating to a new Entity Framework Core release.
+            </summary>
+        </member>
+    </members>
+</doc>

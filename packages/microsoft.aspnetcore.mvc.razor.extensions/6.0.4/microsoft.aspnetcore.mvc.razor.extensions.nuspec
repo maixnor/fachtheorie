@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
+  <metadata>
+    <id>Microsoft.AspNetCore.Mvc.Razor.Extensions</id>
+    <version>6.0.4</version>
+    <authors>Microsoft</authors>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <license type="expression">MIT</license>
+    <licenseUrl>https://licenses.nuget.org/MIT</licenseUrl>
+    <icon>Icon.png</icon>
+    <projectUrl>https://asp.net/</projectUrl>
+    <description>ASP.NET Core design time hosting infrastructure for the Razor view engine.
+
+This package was built from the source code at https://github.com/dotnet/aspnetcore/tree/f9ae0f5d30be2de3c0de61b5673bd8873231d70a</description>
+    <copyright>© Microsoft Corporation. All rights reserved.</copyright>
+    <tags>aspnetcoremvc</tags>
+    <serviceable>true</serviceable>
+    <repository type="git" url="https://github.com/dotnet/aspnetcore" commit="f9ae0f5d30be2de3c0de61b5673bd8873231d70a" />
+    <dependencies>
+      <group targetFramework=".NETStandard2.0">
+        <dependency id="Microsoft.AspNetCore.Razor.Language" version="6.0.4" exclude="Build,Analyzers" />
+        <dependency id="Microsoft.CodeAnalysis.Razor" version="6.0.4" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+  </metadata>
+</package>
